@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.open("https://manishkrbarman.github.io/TO-DO/", "_parent")
     })
     midiora.addEventListener("click", function () {
-        window.open("https://manishkrbarman.github.io/WebPage/", "_parent")
+        window.open("https://manishkrbarman.github.io/MiDiORA/", "_parent")
     })
     cudos.addEventListener("click", function () {
         window.open("https://manishkrbarman.github.io/CUDOS/", "_parent")
