@@ -1,34 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const weather = document.getElementById("weather");
-    const todo = document.getElementById("todo");
-    const midiora = document.getElementById("midiora");
-    const cudos = document.getElementById("cudos");
-    const random = document.getElementById("random");
+    // Link data for slides
+    const slideLinks = [
+        "https://manishkrbarman.github.io/WEATHER/",
+        "https://manishkrbarman.github.io/TO-DO/",
+        "https://manishkrbarman.github.io/MiDiORA/",
+        "https://manishkrbarman.github.io/CUDOS/",
+        "https://replit.com/@ManishKrBarman/Random-Language"
+    ];
 
-    weather.addEventListener("click", function () {
-        window.open("https://manishkrbarman.github.io/WEATHER/", "_parent")
-    })
-    todo.addEventListener("click", function () {
-        window.open("https://manishkrbarman.github.io/TO-DO/", "_parent")
-    })
-    midiora.addEventListener("click", function () {
-        window.open("https://manishkrbarman.github.io/MiDiORA/", "_parent")
-    })
-    cudos.addEventListener("click", function () {
-        window.open("https://manishkrbarman.github.io/CUDOS/", "_parent")
-    })
-    random.addEventListener("click", function () {
-        window.open("https://replit.com/@ManishKrBarman/Random-Language", "_parent")
-    })
-
-
-
+    // Select slides and set up click event listeners for redirection
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, index) => {
+        slide.addEventListener("click", function () {
+            window.open(slideLinks[index], "_parent");
+        });
+    });
 
     // MOBILE CARD DESIGN
 
-    const slides = document.querySelector('.slides');
+    const slideContainer = document.querySelector('.slides');
     const dotsContainer = document.querySelector('.dots');
-    const slideCount = document.querySelectorAll('.slide').length;
+    const slideCount = slides.length;
     let currentIndex = 0; // Start from the first slide
     let startX = 0;
     let isDragging = false;
@@ -58,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update slider position
     const updateSliderPosition = () => {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         updateActiveDot();
     };
 
@@ -74,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const deltaX = startX - currentX;
 
         // Allow some movement while dragging
-        slides.style.transform = `translateX(calc(-${currentIndex * 100}% - ${deltaX}px))`;
+        slideContainer.style.transform = `translateX(calc(-${currentIndex * 100}% - ${deltaX}px))`;
     };
 
     const handleTouchEnd = (e) => {
@@ -97,11 +89,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Add touch event listeners
-    slides.addEventListener('touchstart', handleTouchStart);
-    slides.addEventListener('touchmove', handleTouchMove);
-    slides.addEventListener('touchend', handleTouchEnd);
+    slideContainer.addEventListener('touchstart', handleTouchStart);
+    slideContainer.addEventListener('touchmove', handleTouchMove);
+    slideContainer.addEventListener('touchend', handleTouchEnd);
 
     // Initialize the slider
     updateSliderPosition();
 
+    // Automatic slide change every 3 seconds (3000ms)
+    setInterval(function () {
+        currentIndex = (currentIndex + 1) % slideCount; // Move to the next slide
+        updateSliderPosition();
+    }, 3000);
 });
