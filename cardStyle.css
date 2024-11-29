@@ -153,14 +153,14 @@
         user-select: none;
         border: 2px solid #ffe600;
         border-radius: 50px;
-        background: radial-gradient(circle, #ff0000, #00a6ff76, #03384a, #000000);
+        background: radial-gradient(circle, #ff5100, #00a6ff76, #03384a, #000000);
         /* Prevent text selection while swiping */
         text-align: center;
     }
 
     .slide img {
-        width: 50%;
-        height: 80%;
+        width: 40%;
+        height: 50%;
         object-fit: cover;
     }
 
@@ -191,5 +191,9 @@
         flex-direction: column;
         align-items: center;
         margin: 80px 30px;
+    }
+
+    .btn {
+        margin: 20px 0;
     }
 }
