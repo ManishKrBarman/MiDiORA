@@ -11,6 +11,18 @@
     height: 25vh;
 }
 
+.main-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mob-card {
+    display: none;
+}
+
 .container {
     position: relative;
     width: 100vw;
@@ -112,30 +124,65 @@
     transform: scaleY(50);
 } */
 
-@media screen and (max-width: 460px) {
-    .container .card {
-        display: flex;
-        width: 100px;
-        height: 120px;
-        /* background-color: transparent; */
-        /* background: linear-gradient(135deg, #014c5b, #060167); */
+@media screen and (max-width: 900px) {
+    .container {
+        display: none;
+    }
+
+    .slider {
+        width: 100%;
+        max-width: 400px;
+        overflow: hidden;
         border-radius: 15px;
-        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .slide {
+        width: 100%;
+        flex-shrink: 0;
+        height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        user-select: none;
+        /* Prevent text selection while swiping */
+        text-align: center;
     }
 
-    .container .card img {
-        position: absolute;
-        width: 85%;
-        height: 55%;
-        border-radius: 10px;
-        object-fit: cover;
-        transition: 0.5s;
-        /* filter: grayscale(1) contrast(2); */
+    /* Dots Styling */
+    .dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 8px;
     }
 
+    .dot {
+        width: 12px;
+        height: 12px;
+        background-color: transparent;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
+    .dot.active {
+        background: linear-gradient(90deg, #ffe96e, #f5b273, #ff2525);
+        /* Highlight the active dot */
+    }
 
+    .mob-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 80px 30px;
+    }
 }
