@@ -100,7 +100,7 @@ ul.nav-links {
     height: 200px;
     transform-style: preserve-3d;
     animation: rotateCube 5s infinite linear;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: transparent;
     transition: animation-duration 1s ease-in-out;
 }
 
