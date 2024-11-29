@@ -121,7 +121,9 @@
 } */
 
 @media screen and (max-width: 900px) {
-    .container {
+
+    .container,
+    .pc {
         display: none;
     }
 
