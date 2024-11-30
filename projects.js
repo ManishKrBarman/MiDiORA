@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cudos = document.getElementById("cudos");
     const random = document.getElementById("random");
 
-    // Link redirection for the slides (Mobile & Desktop)
+    // Link redirection for slides
     weather.addEventListener("click", function () {
         window.open("https://manishkrbarman.github.io/WEATHER/", "_parent");
     });
@@ -87,43 +87,30 @@ document.addEventListener("DOMContentLoaded", function () {
     slides.addEventListener('touchmove', handleTouchMove);
     slides.addEventListener('touchend', handleTouchEnd);
 
-    // Initialize the slider
-    updateSliderPosition();
+    // Auto-scroll functionality
+    const autoScroll = () => {
+        currentIndex = (currentIndex + 1) % slideCount; // Go to the next slide, loop back to the first after the last
+        updateSliderPosition();
+    };
 
-    // Ensure card click redirection works for both mobile and desktop
-    const desktopCards = document.querySelectorAll('.card');  // Get all the desktop cards
+    let autoScrollInterval = setInterval(autoScroll, 3000); // 3-second interval for auto-scroll
 
-    desktopCards.forEach(card => {
-        card.addEventListener("click", function () {
-            const id = card.id;  // Get the ID of the clicked card
-            switch (id) {
-                case 'weather':
-                    window.open("https://manishkrbarman.github.io/WEATHER/", "_parent");
-                    break;
-                case 'todo':
-                    window.open("https://manishkrbarman.github.io/TO-DO/", "_parent");
-                    break;
-                case 'midiora':
-                    window.open("https://manishkrbarman.github.io/MiDiORA/", "_parent");
-                    break;
-                case 'cudos':
-                    window.open("https://manishkrbarman.github.io/CUDOS/", "_parent");
-                    break;
-                case 'random':
-                    window.open("https://replit.com/@ManishKrBarman/Random-Language", "_parent");
-                    break;
-                default:
-                    break;
-            }
-        });
+    // Pause auto-scroll on user interaction (touch/swipe)
+    slides.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
+    slides.addEventListener('touchend', () => autoScrollInterval = setInterval(autoScroll, 3000));
+
+    // Pause auto-scroll on desktop when dots are clicked
+    dotsContainer.addEventListener('click', () => {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(autoScroll, 3000);
     });
 
-    // Ensure mobile link redirection works by listening for clicks on the slides
-    const mobileSlides = document.querySelectorAll('.slide');  // Get all the slides for mobile
+    // Ensure card and slide click redirection work
+    const slidesArray = document.querySelectorAll('.slide');
 
-    mobileSlides.forEach(slide => {
+    slidesArray.forEach(slide => {
         slide.addEventListener("click", function () {
-            const id = slide.id;  // Get the ID of the clicked slide
+            const id = slide.id;
             switch (id) {
                 case 'weather':
                     window.open("https://manishkrbarman.github.io/WEATHER/", "_parent");
@@ -146,4 +133,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    updateSliderPosition(); // Initialize the slider position
 });
