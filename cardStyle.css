@@ -31,6 +31,7 @@
     height: 280px;
     /* background-color: transparent; */
     background: linear-gradient(135deg, #014c5b, #060167);
+    border: 4px solid #fff;
     border-radius: 25px;
     cursor: pointer;
     display: flex;
