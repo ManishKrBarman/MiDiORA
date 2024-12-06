@@ -113,10 +113,10 @@ ul.nav-links {
     position: absolute;
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, #003757, #a02fdd);
-    border: 1px solid #002d7a;
+    background: radial-gradient(circle, #000000, #039b8ec3, #4f77807a, #83c5ec, #003757);
+    border: 5px solid #d6e5ff7a;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 40px;
+    border-radius: 50%;
     clip-path: inset(0px round 40px);
 }
 
