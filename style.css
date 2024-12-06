@@ -24,6 +24,10 @@ a {
     user-select: none;
 }
 
+#myAudio {
+    display: none;
+}
+
 header {
     position: sticky;
     top: 0;
