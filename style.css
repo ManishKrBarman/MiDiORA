@@ -98,7 +98,123 @@ ul.nav-links {
     perspective: 800px;
 }
 
+.loader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cube {
+    position: absolute;
+    width: 40px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(45deg);
+    transition: 300ms ease;
+    cursor: pointer;
+    animation: rotateCube 10s infinite linear;
+}
+
+/* change the distance between cubes with translateX */
+.cube-front,
+.cube-back {
+    transform: translateX(40px) translateZ(-20px);
+    animation: none;
+}
+
+/* change the distance between cubes with translateZ */
+.cube-top,
+.cube-bottom {
+    transform: translateZ(20px);
+    animation: none;
+}
+
+/* change the distance between cubes with translateX */
+.cube-left,
+.cube-right {
+    transform: translateX(40px) translateZ(-20px);
+    animation: none;
+}
+
+.face {
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 150px;
+    height: 150px;
+    border-radius: 20%;
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle,
+            rgb(137, 180, 228) 0%,
+            rgba(10, 14, 55, 1) 100%);
+}
+
+.front {
+    transform: rotateY(0deg) translateZ(20px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(20px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(20px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(20px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(20px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(20px);
+}
+
+.cube-back:hover .face,
+.cube-front:hover .face,
+.cube-top:hover .face,
+.cube-bottom:hover .face,
+.cube-left:hover .face,
+.cube-right:hover .face {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, white 60%, rgb(157, 208, 255) 100%);
+    filter: drop-shadow(0px 0px 5px #e7faff) drop-shadow(0px 0px 15px rgb(75, 168, 255)) drop-shadow(0px 0px 30px rgb(50, 156, 255));
+}
+
+.cube:active {
+    transform: translateX(0px) translateZ(-20px);
+}
+
+.cube-back:active .face,
+.cube-front:active .face,
+.cube-top:active .face,
+.cube-bottom:active .face,
+.cube-left:active .face,
+.cube-right:active .face {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, white 60%, rgb(157, 208, 255) 100%);
+    /* filter: drop-shadow(0px 0px 5px #e7faff) drop-shadow(0px 0px 15px rgb(75, 168, 255)) drop-shadow(0px 0px 30px rgb(50, 156, 255)); */
+    filter: drop-shadow(0px 0px 5px #d0e32a) drop-shadow(0px 0px 15px rgb(255, 237, 75)) drop-shadow(0px 0px 30px rgb(255, 221, 50));
+}
+
+.middle {
+    background: transparent;
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(-30deg) rotateY(45deg);
+    }
+
+    100% {
+        transform: rotateX(-30deg) rotateY(405deg);
+    }
+}
+
+/* .cube {
+    display: none;
     position: relative;
     width: 200px;
     height: 200px;
@@ -154,7 +270,7 @@ ul.nav-links {
 
 .bottom {
     transform: rotateX(-90deg) translateZ(100px);
-}
+} */
 
 /* Animation for rotating the cube */
 @keyframes rotateCube {
@@ -217,5 +333,25 @@ ul.nav-links {
 @media screen and (max-width: 455px) {
     .main {
         flex-direction: column-reverse;
+    }
+
+    .face {
+        width: 100px;
+        height: 100px;
+        border-radius: 20%;
+        background: radial-gradient(circle,
+                rgb(255, 255, 255) 0%,
+                rgb(24, 93, 126) 100%);
+    }
+
+    .cube-back:active .face,
+    .cube-front:active .face,
+    .cube-top:active .face,
+    .cube-bottom:active .face,
+    .cube-left:active .face,
+    .cube-right:active .face {
+        background: rgb(247, 243, 33);
+        background: radial-gradient(circle, white 60%, rgb(255, 196, 0) 100%);
+        filter: drop-shadow(0px 0px 5px #d0e32a) drop-shadow(0px 0px 15px rgb(255, 237, 75)) drop-shadow(0px 0px 30px rgb(255, 221, 50));
     }
 }
