@@ -11,6 +11,21 @@ body {
     font-family: 'Ubuntu Sans', sans-serif;
     font-weight: 800;
     text-align: justify;
+    /* animation: bgAnimation 2s infinite ease-in-out; */
+}
+
+@keyframes bgAnimation {
+    0% {
+        background-image: repeating-radial-gradient(circle, rgb(43, 51, 52), rgb(16, 15, 15), rgb(1, 15, 39));
+    }
+
+    50% {
+        background-image: repeating-radial-gradient(circle, rgb(43, 60, 59), rgb(16, 15, 15), rgb(1, 15, 39));
+    }
+
+    100% {
+        background-image: repeating-radial-gradient(circle, rgb(34, 47, 64), rgb(16, 15, 15), rgb(1, 15, 39));
+    }
 }
 
 a {
