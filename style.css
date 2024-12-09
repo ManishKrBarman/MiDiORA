@@ -11,20 +11,28 @@ body {
     font-family: 'Ubuntu Sans', sans-serif;
     font-weight: 800;
     text-align: justify;
-    /* animation: bgAnimation 2s infinite ease-in-out; */
+    animation: bgAnimation 5s infinite ease-in-out;
 }
 
 @keyframes bgAnimation {
     0% {
-        background-image: repeating-radial-gradient(circle, rgb(43, 51, 52), rgb(16, 15, 15), rgb(1, 15, 39));
+        background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+    }
+
+    25% {
+        background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
     }
 
     50% {
-        background-image: repeating-radial-gradient(circle, rgb(43, 60, 59), rgb(16, 15, 15), rgb(1, 15, 39));
+        background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+    }
+
+    75% {
+        background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
     }
 
     100% {
-        background-image: repeating-radial-gradient(circle, rgb(34, 47, 64), rgb(16, 15, 15), rgb(1, 15, 39));
+        background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
     }
 }
 
@@ -122,7 +130,7 @@ ul.nav-links {
 
 .cube {
     position: absolute;
-    width: 40px;
+    width: 10px;
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateY(45deg);
     transition: 300ms ease;
@@ -154,13 +162,13 @@ ul.nav-links {
 .face {
     position: absolute;
     transform-style: preserve-3d;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 20%;
     background: rgb(255, 255, 255);
     background: radial-gradient(circle,
             rgb(137, 180, 228) 0%,
-            rgba(10, 14, 55, 1) 100%);
+            rgb(1, 9, 94) 100%);
 }
 
 .front {
@@ -319,6 +327,7 @@ ul.nav-links {
 .hover-effect:hover::after {
     transform: scale(1);
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
