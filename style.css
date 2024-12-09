@@ -6,33 +6,39 @@
 }
 
 body {
-    background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+    background-image: repeating-radial-gradient(circle, rgb(0, 67, 79) 0%, rgb(16, 15, 15) 100%, rgb(1, 15, 39) 100%);
     color: #c4c2cf;
     font-family: 'Ubuntu Sans', sans-serif;
     font-weight: 800;
     text-align: justify;
-    animation: bgAnimation 5s infinite ease-in-out;
 }
 
 @keyframes bgAnimation {
     0% {
         background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+        filter: contrast(1);
     }
 
     25% {
         background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+        filter: contrast(1.5);
     }
 
     50% {
         background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+        filter: contrast(2);
     }
 
     75% {
         background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+        filter: contrast(1.5);
     }
 
     100% {
         background-image: repeating-radial-gradient(circle, rgb(0, 67, 79), rgb(16, 15, 15), rgb(1, 15, 39));
+        filter: contrast(1);
+        /* filter: hue-rotate(180deg); */
+        /* filter: invert(1); */
     }
 }
 
@@ -83,6 +89,17 @@ ul.nav-links {
     align-items: center;
 }
 
+.master {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-around;
+    align-items: center;
+    animation: bgAnimation 8s infinite linear;
+    z-index: 0;
+}
+
 .main h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -94,6 +111,7 @@ ul.nav-links {
     background-clip: text;
     animation: gradientAnimation 4s infinite ease-in-out;
     user-select: none;
+    z-index: 100;
 }
 
 .logo img,
@@ -126,6 +144,7 @@ ul.nav-links {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
 }
 
 .cube {
@@ -168,7 +187,7 @@ ul.nav-links {
     background: rgb(255, 255, 255);
     background: radial-gradient(circle,
             rgb(137, 180, 228) 0%,
-            rgb(1, 9, 94) 100%);
+            rgb(28, 32, 71) 100%);
 }
 
 .front {
@@ -228,11 +247,11 @@ ul.nav-links {
 
 @keyframes rotateCube {
     0% {
-        transform: rotateX(-30deg) rotateY(45deg);
+        transform: rotateX(0deg) rotateY(0deg);
     }
 
     100% {
-        transform: rotateX(-30deg) rotateY(405deg);
+        transform: rotateX(360deg) rotateY(360deg);
     }
 }
 
@@ -296,7 +315,7 @@ ul.nav-links {
 } */
 
 /* Animation for rotating the cube */
-@keyframes rotateCube {
+/* @keyframes rotateCube {
     0% {
         transform: rotateX(0deg) rotateY(0deg);
     }
@@ -304,7 +323,7 @@ ul.nav-links {
     100% {
         transform: rotateX(360deg) rotateY(360deg);
     }
-}
+} */
 
 /* Hover Effect */
 .hover-effect {
@@ -364,8 +383,8 @@ ul.nav-links {
         height: 100px;
         border-radius: 20%;
         background: radial-gradient(circle,
-                rgb(255, 255, 255) 0%,
-                rgb(24, 93, 126) 100%);
+                rgb(159, 159, 159) 0%,
+                rgb(1, 63, 92) 100%);
     }
 
     .cube-back:active .face,
